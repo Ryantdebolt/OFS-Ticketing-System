@@ -106,7 +106,7 @@ while verified == "no":
     test_weight = float(input("Please enter Test Weight: "))
 
     # Calculate the Bushels
-    if seed == "wheat" or seed == "soybeans":
+    if seed == "wheat" or seed == "soybeans" or seed == "soybean":
         gross_bushels = net_weight / 60.0
     elif seed == "barley":
         gross_bushels = net_weight / 48.0
@@ -182,22 +182,29 @@ ticket.drawString(475, 700, "Ticket Number:")
 ticket.drawString(560, 700, f"{scale_ticket}")
 ticket.line(555, 697, 580, 697)
 
+# Draw lines
+ticket.line(120, 652, 260, 652)
+ticket.line(120, 637, 260, 637)
+ticket.line(120, 622, 260, 622)
+ticket.line(420, 652, 560, 652)
+ticket.line(420, 637, 560, 637)
+ticket.line(420, 622, 560, 622)
+
 # Write load information
 ticket.drawString(30, 655, "Load #:")
 ticket.drawString(130, 655, f"{load_num}")
-ticket.line(120, 652, 260, 652)
-ticket.drawString(30, 640, "Commodity:")
-ticket.drawString(130, 640, f"{seed} {variety}")
-ticket.line(120, 637, 260, 637)
-ticket.drawString(30, 625, "From:")
-ticket.drawString(130, 625, f"{supplier}")
-ticket.line(120, 622, 260, 622)
-ticket.drawString(330, 640, "Wagon/Truck ID:")
-ticket.drawString(430, 640, f"{wagon}")
-ticket.line(420, 637, 560, 637)
-ticket.drawString(330, 625, "To:")
-ticket.drawString(430, 625, f"{destination}")
-ticket.line(420, 622, 560, 622)
+ticket.drawString(30, 640, "From:")
+ticket.drawString(130, 640, f"{supplier}")
+ticket.drawString(30, 625, "To:")
+ticket.drawString(130, 625, f"{destination}")
+
+# Write comodity information
+ticket.drawString(330, 655, "Commodity:")
+ticket.drawString(430, 655, f"{seed}")
+ticket.drawString(330, 640, "Variety:")
+ticket.drawString(430, 640, f"{variety}")
+ticket.drawString(330, 625, "Wagon/Truck ID:")
+ticket.drawString(430, 625, f"{wagon}")
 
 # write weights
 ticket.drawString(30, 595, "Weights:")
